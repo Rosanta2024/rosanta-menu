@@ -121,6 +121,31 @@
   .line .p{font-size:16.5px;font-weight:700;white-space:nowrap;color:var(--verde)}
   .line-desc{font-size:14.5px;margin:0 0 8px;line-height:1.5;max-width:38ch;font-style:italic}
 
+
+  /* ================= subsecciones de cocteles ================= */
+  .sub{margin-top:34px}
+  .sub:first-of-type{margin-top:6px}
+  .sub-cab{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--linea);padding-bottom:9px}
+  .sub-cab h3{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.09em;
+    font-size:22px;margin:0;color:var(--verde);line-height:1.2}
+  .sub-cab .pq{margin-left:auto;font-size:18px;font-weight:700;color:var(--verde);white-space:nowrap}
+  .sub-nota{font-size:15.5px;font-style:italic;margin:11px 0 4px}
+  .cierre{margin-top:30px;padding:16px 18px;border:1px dashed var(--linea);
+    font-size:15.5px;font-style:italic;text-align:center;border-radius:3px}
+
+  /* ================= vinos ================= */
+  .vg{margin-top:34px}
+  .vg:first-of-type{margin-top:4px}
+  .vg > h3{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.09em;
+    font-size:22px;margin:0 0 12px;color:var(--verde);border-bottom:2px solid var(--linea);padding-bottom:9px}
+  .vino{padding:18px 0;border-bottom:1px solid var(--linea-suave)}
+  .vino .n{font-family:var(--serif);font-weight:600;font-size:20px;text-transform:uppercase;
+    letter-spacing:.03em;color:var(--verde);line-height:1.25}
+  .vino .uva{font-size:16px;font-style:italic;margin:5px 0 0}
+  .vino .zona{font-size:14.5px;margin:3px 0 0}
+  .vino .pr{font-size:16.5px;font-weight:700;color:var(--verde);margin:9px 0 0}
+  .vino .pr span{font-weight:400;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase}
+
   /* ================= pie ================= */
   footer{background:var(--verde);color:var(--crema);margin-top:50px}
   footer .inner{padding-top:34px;padding-bottom:40px;text-align:center}
@@ -687,6 +712,170 @@ const MENU = [
         }
       ]
     }
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'cocteles',
+    es: {
+      eyebrow: 'Cócteles',
+      title: 'Carta de cócteles',
+      intro: 'Nuestra barra también refleja la filosofía de sostenibilidad. Trabajamos con macerados, jarabes naturales, tés artesanales y productos frescos. Pregunta por nuestras creaciones de temporada.'
+    },
+    en: {
+      eyebrow: 'Cocktails',
+      title: 'Cocktail menu',
+      intro: 'Our bar reflects the same philosophy of sustainability. We work with macerations, natural syrups, artisan teas and fresh product. Ask about our seasonal creations.'
+    },
+    items: [],
+    subs: [
+      {
+        q: 80,
+        es: { t: 'Los Imperdibles', n: 'Los que no se van nunca. Si es tu primera vez, empieza aquí.' },
+        en: { t: 'Los Imperdibles', n: "The ones that never leave. If it's your first time, start here." },
+        items: [
+          { es: { n: 'Mezcal a la Piña',
+                  d: 'Mezcal Espadín, mermelada de piña ahumada con romero y aromatizada con hierbas del jardín, jarabe simple, jugo de limón y borde de sal de rosa de jamaica.',
+                  m: 'Pulpo a la Parrilla.' },
+            en: { n: 'Mezcal with Pineapple',
+                  d: 'Espadín mezcal, smoked pineapple jam with rosemary and garden herbs, simple syrup, lime juice and a hibiscus salt rim.',
+                  m: 'Grilled Octopus.' } },
+          { es: { n: 'El Fufurufo',
+                  d: 'Gin, cordial de pepino con Samat, jarabe simple, jugo de limón y un toque de kombucha saborizada con romero.',
+                  m: 'Ensalada Rosanta.' },
+            en: { n: 'El Fufurufo',
+                  d: 'Gin, cucumber cordial with Samat, simple syrup, lime juice and a touch of rosemary-infused kombucha.',
+                  m: 'Rosanta Salad.' } },
+          { es: { n: 'Red Pepper',
+                  d: 'Ron Colonial Antigüeño macerado en chiles morrones horneados, bitter de tabaco, un toque de jarabe y ahumado con tabaco de vainilla.',
+                  m: 'Lomito a la Parrilla.' },
+            en: { n: 'Red Pepper',
+                  d: 'Colonial Antigüeño rum infused with roasted red bell peppers, tobacco bitters, a touch of syrup, smoked with vanilla tobacco.',
+                  m: 'Grilled Beef Tenderloin.' } },
+          { es: { n: 'Negroni de Remolacha',
+                  d: 'Gin, shrub de remolacha, terminado con Campari.',
+                  m: 'Queso Horneado.' },
+            en: { n: 'Beetroot Negroni',
+                  d: 'Gin, beetroot shrub, finished with Campari.',
+                  m: 'Baked Cheese.' } },
+          { es: { n: 'El Colonial',
+                  d: 'Ron Colonial Antigüeño, sirope de especias con jamaica, jugo de mandarina y terminado con soda del día.',
+                  m: 'Hamburguesa de Lomito en Tiras.' },
+            en: { n: 'El Colonial',
+                  d: 'Colonial Antigüeño rum, spiced hibiscus syrup, mandarin juice, finished with house soda.',
+                  m: 'Beef Tenderloin Strips Burger.' } }
+        ]
+      },
+      {
+        q: 80,
+        es: { t: 'Cosecha de Temporada', n: 'Lo que el jardín dio esta temporada. Cambian cuando cambia la cosecha.' },
+        en: { t: 'Cosecha de Temporada', n: 'What the garden gave this season. They change when the harvest does.' },
+        items: [
+          { es: { n: 'El Canche',
+                  d: 'Gin, Campari, jugo de toronja, lavanda y terminado con soda.',
+                  m: 'Camarones al Horno.' },
+            en: { n: 'El Canche',
+                  d: 'Gin, Campari, grapefruit juice, lavender, finished with soda.',
+                  m: 'Oven-Baked Shrimp.' } },
+          { es: { n: 'La Lotería',
+                  d: 'Gin, cordial de rábano, jugo de limón, jarabe simple y jugo de piña asada, ahumada y especiada.',
+                  m: 'Tartar de Hongos.' },
+            en: { n: 'La Lotería',
+                  d: 'Gin, radish cordial, lime juice, simple syrup and roasted, smoked and spiced pineapple juice.',
+                  m: 'Mushroom Tartare.' } },
+          { es: { n: 'La Chef',
+                  d: 'Whiskey americano macerado con la extracción de sabor de las costillas de cerdo en fatwash, rodajas de pepino, sirope de lavanda y jugo de mandarina.',
+                  m: 'Costillas de Cerdo.' },
+            en: { n: 'La Chef',
+                  d: 'American whiskey fat-washed with pork rib flavor extraction, cucumber slices, lavender syrup and mandarin juice.',
+                  m: 'Pork Ribs.' } },
+          { es: { n: 'La Feria',
+                  d: 'Mezcal Espadín, mermelada de piña con especias y vino, jugo de limón, jarabe simple y un borde de azúcar de hierbabuena.',
+                  m: 'Hamburguesa de Portobello Asado.' },
+            en: { n: 'La Feria',
+                  d: 'Espadín mezcal, pineapple jam with spices and wine, lime juice, simple syrup, finished with a mint sugar rim.',
+                  m: 'Roasted Portobello Burger.' } },
+          { es: { n: 'Chaitenango',
+                  d: 'Ron Zacapa 23, infusión de chai guatemalteco, jugo de limón y miel.' },
+            en: { n: 'Chaitenango',
+                  d: 'Zacapa 23 rum, Guatemalan chai infusion, lime juice and honey.' } },
+          { es: { n: 'Boga',
+                  d: 'Wild Turkey 81, jugo de limón, jarabe de lavanda y soda de piña con lemongrass.' },
+            en: { n: 'Boga',
+                  d: 'Wild Turkey 81, lime juice, lavender syrup and pineapple soda with lemongrass.' } }
+        ]
+      },
+      {
+        q: 75,
+        es: { t: 'Raíces de la Casa', n: 'Los de siempre, los que la casa hace desde el principio.' },
+        en: { t: 'Raíces de la Casa', n: 'The originals. What the house has been making from the start.' },
+        items: [
+          { es: { n: 'El Mero, Mero',
+                  d: 'Vermouth Bianco, Ron Colonial, mango, maracuyá e infusión de hierbas del jardín.' },
+            en: { n: 'El Mero, Mero',
+                  d: 'Bianco vermouth, Colonial rum, mango, passion fruit and garden herb infusion.' } },
+          { es: { n: 'Los Penitentes',
+                  d: 'Ron Botran 12, Ron Botran Reserva Blanca, maracuyá, infusión de romero, jugo de mandarina y jarabe simple.' },
+            en: { n: 'Los Penitentes',
+                  d: 'Botran 12 rum, Botran White Reserve rum, passion fruit, rosemary infusion, mandarin juice and simple syrup.' } },
+          { es: { n: 'El Cuaje',
+                  d: 'Gin infusionado en albahaca, vino rosado macerado en salvia y bitter de cardamomo.' },
+            en: { n: 'El Cuaje',
+                  d: 'Gin infused with basil, rosé wine macerated with sage and cardamom bitters.' } },
+          { es: { n: 'Comal Borracho',
+                  d: 'Tequila, dilución de remolacha, jugo de limón, sal y jarabe simple.' },
+            en: { n: 'Comal Borracho',
+                  d: 'Tequila, beetroot dilution, lime juice, salt and simple syrup.' } }
+        ]
+      }
+    ],
+    cierre: {
+      es: 'Muchos más cócteles si preguntas al equipo.',
+      en: 'Many more cocktails if you ask our team.'
+    }
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'vinos',
+    es: { eyebrow: 'Vinos', title: 'Carta de vinos' },
+    en: { eyebrow: 'Wines', title: 'Wine menu' },
+    items: [],
+    vinos: [
+      {
+        es: 'Tintos', en: 'Reds',
+        items: [
+          { n: 'Don Luis', uva: 'Cabernet Sauvignon', zEs: 'Valle del Maipo, Chile', zEn: 'Maipo Valley, Chile', copa: 70, bot: 350 },
+          { n: 'La Linda', uva: 'Malbec', zEs: 'Luján de Cuyo, Mendoza, Argentina', zEn: 'Luján de Cuyo, Mendoza, Argentina', copa: 70, bot: 350 },
+          { n: 'Mariluna Tinto', uva: 'Tempranillo, Bobal', zEs: 'Valencia, España', zEn: 'Valencia, Spain', copa: 70, bot: 350 },
+          { n: 'Bohigas Garnatxa Negra', uva: 'Garnacha Tinta', zEs: 'Valle de Anoia, Catalunya, España', zEn: 'Anoia Valley, Catalunya, Spain', bot: 375 },
+          { n: 'Lan Reserva', uva: 'Tempranillo, Mazuelo', zEs: 'Rioja Alta, España', zEn: 'Rioja Alta, Spain', bot: 455 },
+          { n: 'Pulenta Estate, Red Blend V', uva: 'Malbec, Cabernet Sauvignon, Merlot', zEs: 'Luján de Cuyo, Mendoza, Argentina', zEn: 'Luján de Cuyo, Mendoza, Argentina', bot: 535 }
+        ]
+      },
+      {
+        es: 'Blancos', en: 'Whites',
+        items: [
+          { n: 'Don Luis', uva: 'Chardonnay', zEs: 'Valle del Maipo, Chile', zEn: 'Maipo Valley, Chile', copa: 70, bot: 350 },
+          { n: 'Mariluna Blanco', uva: 'Verdejo, Macabeo', zEs: 'Valencia, España', zEn: 'Valencia, Spain', copa: 70, bot: 350 },
+          { n: 'La Val', uva: 'Albariño', zEs: 'Pontevedra, Galicia, España', zEn: 'Pontevedra, Galicia, Spain', copa: 70, bot: 350 },
+          { n: 'Salentein Killka', uva: 'Malbec Blanco', zEs: 'Valle de Uco, Mendoza, Argentina', zEn: 'Uco Valley, Mendoza, Argentina', bot: 375 },
+          { n: 'Santiago Ruiz', uva: 'Albariño', zEs: 'DO Rías Baixas, Galicia, España', zEn: 'DO Rías Baixas, Galicia, Spain', bot: 510 }
+        ]
+      },
+      {
+        es: 'Rosados', en: 'Rosé',
+        items: [
+          { n: 'Pasión de Bodal', uva: 'Bodal', zEs: 'Valencia, España', zEn: 'Valencia, Spain', bot: 405 }
+        ]
+      },
+      {
+        es: 'Cavas', en: 'Cava',
+        items: [
+          { n: 'Cava Bohigas Brut Reserva', uva: 'Xarel·lo, Macabeo, Perellada', zEs: 'Valle de Anoia, Catalunya, España', zEn: 'Anoia Valley, Catalunya, Spain', bot: 375 }
+        ]
+      }
+    ]
   }
 ];
 
@@ -718,6 +907,30 @@ function itemHTML(it){
   if(t.m)  h += '<p class="mar"><b>' + (lang==='es'?'Maridaje':'Pairing') + '</b>' + esc(t.m) + '</p>';
   (t.notas||[]).forEach(n => { h += '<p class="nota"><span class="mk">&#10048;</span><span>' + esc(n) + '</span></p>'; });
   if(t.link) h += '<p class="nota"><span class="mk">&#10048;</span><span><a href="' + t.link.u + '" target="_blank" rel="noopener">' + esc(t.link.t) + '</a></span></p>';
+  return h + '</div>';
+}
+
+function subHTML(sub){
+  const t = sub[lang];
+  return '<div class="sub"><div class="sub-cab"><h3>' + esc(t.t) + '</h3>'
+    + '<span class="pq">Q' + sub.q + '</span></div>'
+    + (t.n ? '<p class="sub-nota">' + esc(t.n) + '</p>' : '')
+    + sub.items.map(itemHTML).join('') + '</div>';
+}
+
+function vinoGrupoHTML(g){
+  let h = '<div class="vg"><h3>' + esc(g[lang]) + '</h3>';
+  g.items.forEach(v => {
+    const copa = lang === 'es' ? 'Copa' : 'Glass';
+    const bot  = lang === 'es' ? 'Botella' : 'Bottle';
+    let pr = '';
+    if(v.copa) pr += '<span>' + copa + '</span> Q' + v.copa + '&nbsp;&nbsp;&middot;&nbsp;&nbsp;';
+    pr += '<span>' + bot + '</span> Q' + v.bot;
+    h += '<div class="vino"><div class="n">' + esc(v.n) + '</div>'
+       + '<p class="uva">' + esc(v.uva) + '</p>'
+       + '<p class="zona">' + esc(lang === 'es' ? v.zEs : v.zEn) + '</p>'
+       + '<p class="pr">' + pr + '</p></div>';
+  });
   return h + '</div>';
 }
 
@@ -769,9 +982,12 @@ function render(){
         '<h2>' + esc(s[lang].title) + '</h2>' +
       '</div></div>' +
       '<div class="cuerpo"><div class="inner">' +
-        '<p class="sec-intro">' + esc(s[lang].intro) + '</p>' +
+        (s[lang].intro ? '<p class="sec-intro">' + esc(s[lang].intro) + '</p>' : '') +
         s.items.map(itemHTML).join('') +
-        (s.grid ? gridHTML(s.grid) : '') +
+        (s.subs  ? s.subs.map(subHTML).join('') : '') +
+        (s.vinos ? s.vinos.map(vinoGrupoHTML).join('') : '') +
+        (s.grid  ? gridHTML(s.grid) : '') +
+        (s.cierre ? '<p class="cierre">' + esc(s.cierre[lang]) + '</p>' : '') +
       '</div></div></section>';
     return h;
   }).join('');
