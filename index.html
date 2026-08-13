@@ -7,8 +7,17 @@
 <meta name="description" content="Menú de Rosanta, gastronomía sostenible en Antigua Guatemala. Cocina que nace de la tierra y se sirve con propósito.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  /* PESKIA Bold · licencia Web Font, archivos servidos junto a este index.html */
+  @font-face{
+    font-family:'Peskia';
+    src:url('peskia-bold.woff2') format('woff2'),
+        url('peskia-bold.woff') format('woff');
+    font-weight:400 700;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --verde:#4E6D5A;        /* Verde Bosque, bandas y titulares */
     --verde-texto:#2F4438;  /* verde profundo para lectura, contraste 9:1 */
@@ -16,7 +25,7 @@
     --lila:#AEAAE2;         /* chispa, solo acento */
     --linea:rgba(47,68,56,.22);
     --linea-suave:rgba(47,68,56,.12);
-    --serif:'Italiana', Georgia, serif;           /* sustituto legal de PESKIA */
+    --serif:'Peskia', Georgia, serif;             /* titulares, siempre en mayusculas */
     --sans:'Lato', Arial, sans-serif;             /* fallback de Avenir */
   }
   *{box-sizing:border-box}
