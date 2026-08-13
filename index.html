@@ -170,6 +170,19 @@
     .top .inner{gap:8px;justify-content:space-between}
     .lang button{padding:9px 10px;font-size:12.5px;letter-spacing:.05em}
     .btn-sec{padding:11px 13px;font-size:12.5px;letter-spacing:.05em;gap:7px}
+  }
+  /* barras muy angostas: iframe dentro de Wix en telefono */
+  .lang .sm{display:none}
+  @media (max-width:470px){
+    .lang .lg{display:none}
+    .lang .sm{display:inline}
+    .lang button{padding:9px 14px;font-size:13px;letter-spacing:.08em}
+    .btn-sec{padding:11px 14px;font-size:12.5px}
+  }
+  @media (max-width:330px){
+    .btn-sec span{display:none}
+    .btn-sec{padding:11px;gap:0;min-width:44px;justify-content:center}
+    .btn-sec svg{width:17px;height:17px}
     .cols{grid-template-columns:1fr;gap:0}
     .banda h2{font-size:35px}
     .mark{font-size:17px;letter-spacing:.22em}
@@ -181,8 +194,8 @@
 <div class="top">
   <div class="inner">
     <div class="lang" role="group" aria-label="Idioma / Language">
-      <button data-lang="es" aria-pressed="true">Español</button>
-      <button data-lang="en" aria-pressed="false">English</button>
+      <button data-lang="es" aria-pressed="true" aria-label="Español"><span class="lg">Español</span><span class="sm">ES</span></button>
+      <button data-lang="en" aria-pressed="false" aria-label="English"><span class="lg">English</span><span class="sm">EN</span></button>
     </div>
     <div class="aqui" id="aqui"></div>
     <button class="btn-sec" id="btnSec">
