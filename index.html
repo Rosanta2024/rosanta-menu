@@ -65,7 +65,10 @@
   .idx .tit{font-family:var(--serif);font-weight:400;font-size:25px;text-transform:uppercase;letter-spacing:.06em;line-height:1.25}
 
   /* ================= portada / intro ================= */
-  .intro{padding:40px 0 8px}
+  .intro{padding:34px 0 8px}
+  .titulo{font-family:var(--serif);font-weight:400;text-transform:uppercase;
+    font-size:54px;line-height:.95;letter-spacing:.04em;color:var(--verde);
+    margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--linea)}
   .eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--verde);margin:0 0 14px}
   .lead{font-family:var(--sans);font-size:25px;line-height:1.4;font-weight:400;
     color:var(--verde);margin:0 0 22px;max-width:26ch}
@@ -161,6 +164,7 @@
   @media (min-width:760px){
     body{font-size:18px}
     .banda h2{font-size:56px}
+    .titulo{font-size:76px}
     .lead{font-size:36px}
     .name{font-size:25px}
   }
@@ -185,6 +189,7 @@
     .btn-sec svg{width:17px;height:17px}
     .cols{grid-template-columns:1fr;gap:0}
     .banda h2{font-size:35px}
+    .titulo{font-size:46px}
     .mark{font-size:17px;letter-spacing:.22em}
   }
 </style>
@@ -226,6 +231,7 @@
 
 const INTRO = {
   es: {
+    titulo: 'Menú',
     kicker: 'Cocina con propósito',
     lead: 'La cocina que nace de la tierra y se sirve con propósito.',
     body: [
@@ -237,6 +243,7 @@ const INTRO = {
     coordNote: 'Las coordenadas de Antigua. El punto exacto donde crece casi todo lo que llega a tu mesa.'
   },
   en: {
+    titulo: 'Menu',
     kicker: 'Cooking with purpose',
     lead: 'Cooking that is born from the land and served with purpose.',
     body: [
@@ -981,6 +988,7 @@ function render(){
 
   document.getElementById('intro').innerHTML =
     '<span id="top"></span>' +
+    '<h1 class="titulo">' + esc(t.titulo) + '</h1>' +
     '<p class="eyebrow">' + esc(t.kicker) + '</p>' +
     '<p class="lead">' + esc(t.lead) + '</p>' +
     '<p>' + esc(t.body[0]) + '</p>' +
