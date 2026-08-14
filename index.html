@@ -19,26 +19,27 @@
     font-display:swap;
   }
   :root{
-    --verde:#4E6D5A;        /* Verde Bosque, bandas y titulares */
-    --verde-texto:#2F4438;  /* verde profundo para lectura, contraste 9:1 */
-    --crema:#F2EEEB;
+    --verde:#4E6D5A;        /* fondo, identico al de la web */
+    --verde-osc:#44604F;    /* barra fija y matices */
+    --verde-texto:#2F4438;  /* solo para texto sobre pastilla clara */
+    --crema:#FFFFFF;        /* texto, el mismo blanco del resto del sitio */
     --lila:#AEAAE2;         /* chispa, solo acento */
-    --linea:rgba(47,68,56,.22);
-    --linea-suave:rgba(47,68,56,.12);
+    --linea:rgba(255,255,255,.30);
+    --linea-suave:rgba(255,255,255,.16);
     --serif:'Peskia', Georgia, serif;             /* titulares, siempre en mayusculas */
     --sans:'Lato', Arial, sans-serif;             /* fallback de Avenir */
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--crema);color:var(--verde-texto);font-family:var(--sans);
+  body{background:var(--verde);color:var(--crema);font-family:var(--sans);
        font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px}
   a{color:inherit}
   .inner{max-width:820px;margin:0 auto;padding:0 22px}
 
   /* ================= barra fija ================= */
-  .top{position:sticky;top:0;z-index:20;background:var(--verde);color:var(--crema)}
+  .top{position:sticky;top:0;z-index:20;background:var(--verde-osc);color:var(--crema);border-bottom:1px solid rgba(255,255,255,.18)}
   .top .inner{display:flex;align-items:center;gap:12px;padding-top:11px;padding-bottom:11px}
-  .lang{display:flex;border:1px solid rgba(242,238,235,.55);border-radius:999px;overflow:hidden;flex:0 0 auto}
+  .lang{display:flex;border:1px solid rgba(255,255,255,.55);border-radius:999px;overflow:hidden;flex:0 0 auto}
   .lang button{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
     padding:9px 15px;border:0;background:transparent;color:var(--crema);cursor:pointer;min-height:44px}
   .lang button[aria-pressed="true"]{background:var(--crema);color:var(--verde)}
@@ -51,44 +52,44 @@
   .btn-sec svg{width:15px;height:15px}
 
   /* ================= índice de secciones ================= */
-  .idx{position:fixed;inset:0;z-index:40;background:var(--crema);display:none;overflow-y:auto}
+  .idx{position:fixed;inset:0;z-index:40;background:var(--verde);display:none;overflow-y:auto}
   .idx.abierto{display:block}
   .idx .cab{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;
-    background:var(--verde);color:var(--crema)}
+    background:var(--verde-osc);color:var(--crema);border-bottom:1px solid rgba(255,255,255,.18)}
   .idx .cab span{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.18em;text-transform:uppercase}
-  .idx .cerrar{background:transparent;border:1px solid rgba(242,238,235,.55);color:var(--crema);
+  .idx .cerrar{background:transparent;border:1px solid rgba(255,255,255,.55);color:var(--crema);
     border-radius:999px;width:44px;height:44px;font-size:20px;line-height:1;cursor:pointer}
   .idx ol{list-style:none;margin:0;padding:8px 22px 40px;max-width:820px;margin:0 auto}
   .idx li{border-bottom:1px solid var(--linea-suave)}
-  .idx a{display:flex;align-items:baseline;gap:14px;padding:20px 4px;text-decoration:none;color:var(--verde-texto)}
-  .idx .num{font-size:13px;letter-spacing:.14em;color:var(--verde);opacity:.7;min-width:26px}
+  .idx a{display:flex;align-items:baseline;gap:14px;padding:20px 4px;text-decoration:none;color:var(--crema)}
+  .idx .num{font-size:13px;letter-spacing:.14em;color:var(--crema);opacity:.6;min-width:26px}
   .idx .tit{font-family:var(--serif);font-weight:400;font-size:25px;text-transform:uppercase;letter-spacing:.06em;line-height:1.25}
 
   /* ================= portada / intro ================= */
   .intro{padding:34px 0 4px}
   .titulo{font-family:var(--serif);font-weight:400;text-transform:uppercase;
-    font-size:54px;line-height:.95;letter-spacing:.04em;color:var(--verde);
+    font-size:54px;line-height:.95;letter-spacing:.04em;color:var(--crema);
     margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--linea)}
-  .eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--verde);margin:0 0 14px}
+  .eyebrow{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.72);margin:0 0 14px}
   .lead{font-family:var(--sans);font-size:25px;line-height:1.4;font-weight:400;
-    color:var(--verde);margin:0 0 22px;max-width:26ch}
+    color:var(--crema);margin:0 0 22px;max-width:26ch}
   .intro p{font-size:17px;line-height:1.7;margin:0 0 15px;max-width:60ch}
   .intro details{margin:6px 0 26px}
   .intro summary{cursor:pointer;font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    list-style:none;display:inline-block;padding:13px 22px;border:1.5px solid var(--verde);
-    border-radius:999px;color:var(--verde);min-height:44px}
+    list-style:none;display:inline-block;padding:13px 22px;border:1.5px solid rgba(255,255,255,.65);
+    border-radius:999px;color:var(--crema);min-height:44px}
   .intro summary::-webkit-details-marker{display:none}
   .intro details[open] summary{margin-bottom:18px}
   .coord{display:flex;gap:16px;align-items:flex-start;padding:18px 0 34px;border-top:1px solid var(--linea-suave)}
   .coord b{font-family:var(--serif);font-weight:400;letter-spacing:.16em;white-space:nowrap;
-    font-size:17px;color:var(--verde);padding-top:2px}
+    font-size:17px;color:var(--crema);padding-top:2px}
   .coord span{font-size:15.5px;font-style:italic;line-height:1.55}
 
   /* ================= banda verde de sección ================= */
   section{scroll-margin-top:78px}
-  .banda{background:var(--verde);color:var(--crema);position:relative;overflow:hidden}
+  .banda{background:transparent;color:var(--crema);position:relative;overflow:hidden;border-top:1px solid var(--linea)}
   .banda .inner{padding-top:42px;padding-bottom:42px;position:relative;z-index:2}
-  .banda .eyebrow{color:rgba(242,238,235,.8);margin-bottom:12px}
+  .banda .eyebrow{color:rgba(255,255,255,.72);margin-bottom:12px}
   .banda h2{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.06em;
     font-size:41px;line-height:1.08;margin:0;max-width:14ch}
 
@@ -99,15 +100,15 @@
   .acc > summary .inner{display:flex;align-items:center;gap:20px}
   .acc > summary .txt{flex:1 1 auto;min-width:0}
   .acc > summary .cuenta{font-size:14px;letter-spacing:.18em;text-transform:uppercase;
-    color:rgba(242,238,235,.75);margin:14px 0 0}
-  .sig{flex:0 0 auto;width:52px;height:52px;border:1.5px solid rgba(242,238,235,.6);
+    color:rgba(255,255,255,.7);margin:14px 0 0}
+  .sig{flex:0 0 auto;width:52px;height:52px;border:1.5px solid rgba(255,255,255,.55);
     border-radius:999px;position:relative}
   .sig::before,.sig::after{content:'';position:absolute;background:var(--crema);
     left:50%;top:50%;transform:translate(-50%,-50%);transition:opacity .15s}
   .sig::before{width:17px;height:2px}
   .sig::after{width:2px;height:17px}
   .acc[open] .sig::after{opacity:0}
-  .acc > summary:hover .banda,.acc > summary:focus-visible .banda{background:#456150}
+  .acc > summary:hover .banda,.acc > summary:focus-visible .banda{background:rgba(255,255,255,.06)}
   .acc > summary .banda{transition:background .15s}
 
   /* ================= platos ================= */
@@ -116,34 +117,34 @@
   .item{padding:24px 0;border-bottom:1px solid var(--linea-suave)}
   .row{display:flex;align-items:baseline;gap:12px}
   .name{font-family:var(--serif);font-size:23px;font-weight:400;text-transform:uppercase;
-    letter-spacing:.04em;line-height:1.25;color:var(--verde-texto)}
+    letter-spacing:.04em;line-height:1.25;color:var(--crema)}
   .dots{flex:1;border-bottom:1px dotted var(--linea);transform:translateY(-5px);min-width:16px}
-  .price{font-size:19px;font-weight:700;letter-spacing:.02em;white-space:nowrap;color:var(--verde)}
+  .price{font-size:19px;font-weight:700;letter-spacing:.02em;white-space:nowrap;color:var(--crema)}
   .price2{font-size:14.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--verde);margin:9px 0 0}
+    color:var(--crema);margin:9px 0 0}
   .desc{font-size:16.5px;line-height:1.62;margin:10px 0 0;max-width:58ch}
   .x{font-size:15.5px;font-style:italic;margin:8px 0 0}
   .mar{font-size:15.5px;line-height:1.6;margin:11px 0 0;max-width:58ch;
     padding-left:14px;border-left:2px solid var(--lila)}
   .mar b{font-weight:700;font-style:normal;letter-spacing:.04em;text-transform:uppercase;font-size:13px;
-    display:block;margin-bottom:2px;color:var(--verde)}
+    display:block;margin-bottom:2px;color:var(--crema)}
   .nota{font-size:14.5px;line-height:1.5;margin:9px 0 0;max-width:58ch;display:flex;gap:9px}
   .nota .mk{color:var(--lila);flex:0 0 auto}
-  .nota a{color:var(--verde);font-weight:700}
+  .nota a{color:var(--crema);font-weight:700}
 
   /* ================= bloques de lista ================= */
   .grid-block{margin-top:38px;padding-top:30px;border-top:2px solid var(--linea)}
   .grid-title{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:25px;
-    margin:0 0 8px;color:var(--verde)}
+    margin:0 0 8px;color:var(--crema)}
   .grid-intro{font-size:16px;font-style:italic;margin:0 0 22px}
   .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
   .group{margin-bottom:28px}
-  .group h4{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--verde);
+  .group h4{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);
     margin:0 0 10px;font-weight:700;padding-bottom:7px;border-bottom:1px solid var(--linea-suave)}
   .line{display:flex;align-items:baseline;gap:10px;padding:9px 0}
   .line .n{font-size:16.5px;line-height:1.35}
   .line .d2{flex:1;border-bottom:1px dotted var(--linea);transform:translateY(-5px);min-width:10px}
-  .line .p{font-size:16.5px;font-weight:700;white-space:nowrap;color:var(--verde)}
+  .line .p{font-size:16.5px;font-weight:700;white-space:nowrap;color:var(--crema)}
   .line-desc{font-size:14.5px;margin:0 0 8px;line-height:1.5;max-width:38ch;font-style:italic}
 
 
@@ -152,8 +153,8 @@
   .sub:first-of-type{margin-top:6px}
   .sub-cab{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--linea);padding-bottom:9px}
   .sub-cab h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.1em;
-    font-size:25px;margin:0;color:var(--verde);line-height:1.2}
-  .sub-cab .pq{margin-left:auto;font-size:18px;font-weight:700;color:var(--verde);white-space:nowrap}
+    font-size:25px;margin:0;color:var(--crema);line-height:1.2}
+  .sub-cab .pq{margin-left:auto;font-size:18px;font-weight:700;color:var(--crema);white-space:nowrap}
   .sub-nota{font-size:15.5px;font-style:italic;margin:11px 0 4px}
   .cierre{margin-top:30px;padding:16px 18px;border:1px dashed var(--linea);
     font-size:15.5px;font-style:italic;text-align:center;border-radius:3px}
@@ -162,22 +163,22 @@
   .vg{margin-top:34px}
   .vg:first-of-type{margin-top:4px}
   .vg > h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.1em;
-    font-size:25px;margin:0 0 12px;color:var(--verde);border-bottom:2px solid var(--linea);padding-bottom:9px}
+    font-size:25px;margin:0 0 12px;color:var(--crema);border-bottom:2px solid var(--linea);padding-bottom:9px}
   .vino{padding:18px 0;border-bottom:1px solid var(--linea-suave)}
   .vino .n{font-family:var(--serif);font-weight:400;font-size:22px;text-transform:uppercase;
-    letter-spacing:.04em;color:var(--verde-texto);line-height:1.25}
+    letter-spacing:.04em;color:var(--crema);line-height:1.25}
   .vino .uva{font-size:16px;font-style:italic;margin:5px 0 0}
   .vino .zona{font-size:14.5px;margin:3px 0 0}
-  .vino .pr{font-size:16.5px;font-weight:700;color:var(--verde);margin:9px 0 0}
+  .vino .pr{font-size:16.5px;font-weight:700;color:var(--crema);margin:9px 0 0}
   .vino .pr span{font-weight:400;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase}
 
   /* ================= pie ================= */
-  footer{background:var(--verde);color:var(--crema);margin-top:50px}
+  footer{background:transparent;color:var(--crema);margin-top:50px;border-top:1px solid var(--linea)}
   footer .inner{padding-top:34px;padding-bottom:40px;text-align:center}
   footer .brand{font-family:var(--serif);font-weight:400;letter-spacing:.2em;text-transform:uppercase;font-size:17px;display:block}
   footer .prop{font-size:15px;margin:12px 0 0}
   footer .cd{font-family:var(--serif);font-weight:400;letter-spacing:.22em;font-size:15px;margin:18px 0 0;
-    padding-top:16px;border-top:1px solid rgba(242,238,235,.3);display:inline-block}
+    padding-top:16px;border-top:1px solid rgba(255,255,255,.3);display:inline-block}
 
   @media (min-width:760px){
     body{font-size:18px}
