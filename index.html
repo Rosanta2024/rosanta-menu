@@ -65,7 +65,7 @@
   .idx .tit{font-family:var(--serif);font-weight:400;font-size:25px;text-transform:uppercase;letter-spacing:.06em;line-height:1.25}
 
   /* ================= portada / intro ================= */
-  .intro{padding:34px 0 8px}
+  .intro{padding:34px 0 4px}
   .titulo{font-family:var(--serif);font-weight:400;text-transform:uppercase;
     font-size:54px;line-height:.95;letter-spacing:.04em;color:var(--verde);
     margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--linea)}
@@ -73,12 +73,12 @@
   .lead{font-family:var(--sans);font-size:25px;line-height:1.4;font-weight:400;
     color:var(--verde);margin:0 0 22px;max-width:26ch}
   .intro p{font-size:17px;line-height:1.7;margin:0 0 15px;max-width:60ch}
-  details{margin:6px 0 26px}
-  summary{cursor:pointer;font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  .intro details{margin:6px 0 26px}
+  .intro summary{cursor:pointer;font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     list-style:none;display:inline-block;padding:13px 22px;border:1.5px solid var(--verde);
     border-radius:999px;color:var(--verde);min-height:44px}
-  summary::-webkit-details-marker{display:none}
-  details[open] summary{margin-bottom:18px}
+  .intro summary::-webkit-details-marker{display:none}
+  .intro details[open] summary{margin-bottom:18px}
   .coord{display:flex;gap:16px;align-items:flex-start;padding:18px 0 34px;border-top:1px solid var(--linea-suave)}
   .coord b{font-family:var(--serif);font-weight:400;letter-spacing:.16em;white-space:nowrap;
     font-size:17px;color:var(--verde);padding-top:2px}
@@ -91,6 +91,24 @@
   .banda .eyebrow{color:rgba(242,238,235,.8);margin-bottom:12px}
   .banda h2{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.06em;
     font-size:41px;line-height:1.08;margin:0;max-width:14ch}
+
+  /* ---- secciones plegables ---- */
+  .acc{margin:0}
+  .acc > summary{list-style:none;display:block;cursor:pointer}
+  .acc > summary::-webkit-details-marker{display:none}
+  .acc > summary .inner{display:flex;align-items:center;gap:20px}
+  .acc > summary .txt{flex:1 1 auto;min-width:0}
+  .acc > summary .cuenta{font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(242,238,235,.75);margin:14px 0 0}
+  .sig{flex:0 0 auto;width:52px;height:52px;border:1.5px solid rgba(242,238,235,.6);
+    border-radius:999px;position:relative}
+  .sig::before,.sig::after{content:'';position:absolute;background:var(--crema);
+    left:50%;top:50%;transform:translate(-50%,-50%);transition:opacity .15s}
+  .sig::before{width:17px;height:2px}
+  .sig::after{width:2px;height:17px}
+  .acc[open] .sig::after{opacity:0}
+  .acc > summary:hover .banda,.acc > summary:focus-visible .banda{background:#456150}
+  .acc > summary .banda{transition:background .15s}
 
   /* ================= platos ================= */
   section .cuerpo{padding:30px 0 10px}
@@ -973,6 +991,25 @@ function gridHTML(g){
   return h + '</div></div>';
 }
 
+/* ---- cuantos elementos tiene cada seccion ---- */
+const UNIDAD = {
+  empezar:      ['platos','dishes'],
+  saludables:   ['platos','dishes'],
+  hamburguesas: ['hamburguesas','burgers'],
+  fuertes:      ['platos','dishes'],
+  bebidas:      ['opciones','options'],
+  cocteles:     ['c\u00f3cteles','cocktails'],
+  vinos:        ['etiquetas','labels']
+};
+function cuenta(s){
+  let n = (s.items || []).length;
+  (s.subs  || []).forEach(x => n += (x.items || []).length);
+  (s.vinos || []).forEach(g => n += (g.items || []).length);
+  if(s.grid) (s.grid.groups || []).forEach(g => n += (g.items || []).length);
+  const u = UNIDAD[s.id] || ['opciones','options'];
+  return n + ' ' + (lang === 'es' ? u[0] : u[1]);
+}
+
 function render(){
   document.documentElement.lang = lang;
   const t = INTRO[lang];
@@ -991,18 +1028,22 @@ function render(){
     '<h1 class="titulo">' + esc(t.titulo) + '</h1>' +
     '<p class="eyebrow">' + esc(t.kicker) + '</p>' +
     '<p class="lead">' + esc(t.lead) + '</p>' +
-    '<p>' + esc(t.body[0]) + '</p>' +
     '<details><summary>' + (lang==='es'?'Seguir leyendo':'Keep reading') + '</summary>' +
-      t.body.slice(1).map(p => '<p>' + esc(p) + '</p>').join('') +
-    '</details>' +
-    '<div class="coord"><b>14&deg; N &middot; 91&deg; W</b><span>' + esc(t.coordNote) + '</span></div>';
+      t.body.map(p => '<p>' + esc(p) + '</p>').join('') +
+      '<div class="coord"><b>14&deg; N &middot; 91&deg; W</b><span>' + esc(t.coordNote) + '</span></div>' +
+    '</details>';
 
-  document.getElementById('menu').innerHTML = MENU.map(s => {
+  document.getElementById('menu').innerHTML = MENU.map((s,i) => {
     let h = '<section id="' + s.id + '">' +
-      '<div class="banda"><div class="inner">' +
-        '<p class="eyebrow">' + esc(s[lang].eyebrow) + '</p>' +
-        '<h2>' + esc(s[lang].title) + '</h2>' +
-      '</div></div>' +
+      '<details class="acc"' + (i === 0 ? ' open' : '') + '>' +
+      '<summary><div class="banda"><div class="inner">' +
+        '<div class="txt">' +
+          '<p class="eyebrow">' + esc(s[lang].eyebrow) + '</p>' +
+          '<h2>' + esc(s[lang].title) + '</h2>' +
+          '<p class="cuenta">' + cuenta(s) + '</p>' +
+        '</div>' +
+        '<span class="sig" aria-hidden="true"></span>' +
+      '</div></div></summary>' +
       '<div class="cuerpo"><div class="inner">' +
         (s[lang].intro ? '<p class="sec-intro">' + esc(s[lang].intro) + '</p>' : '') +
         s.items.map(itemHTML).join('') +
@@ -1010,7 +1051,7 @@ function render(){
         (s.vinos ? s.vinos.map(vinoGrupoHTML).join('') : '') +
         (s.grid  ? gridHTML(s.grid) : '') +
         (s.cierre ? '<p class="cierre">' + esc(s.cierre[lang]) + '</p>' : '') +
-      '</div></div></section>';
+      '</div></div></details></section>';
     return h;
   }).join('');
 
@@ -1034,7 +1075,18 @@ const idx = document.getElementById('idx');
 function abrir(v){ idx.classList.toggle('abierto', v); idx.setAttribute('aria-hidden', String(!v)); }
 document.getElementById('btnSec').addEventListener('click', () => abrir(true));
 document.getElementById('cerrar').addEventListener('click', () => abrir(false));
-idx.addEventListener('click', e => { if(e.target.closest('a')) abrir(false); });
+idx.addEventListener('click', e => {
+  const a = e.target.closest('a');
+  if(!a) return;
+  abrir(false);
+  const id = (a.getAttribute('href') || '').slice(1);
+  const sec = document.getElementById(id);
+  const d = sec && sec.querySelector('details.acc');
+  if(d && !d.open){
+    d.open = true;
+    setTimeout(() => { sec.scrollIntoView(); sendHeight(); }, 30);
+  }
+});
 
 /* ---- dónde estoy ---- */
 addEventListener('scroll', () => {
